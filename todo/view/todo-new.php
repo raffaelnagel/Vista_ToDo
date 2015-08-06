@@ -25,16 +25,16 @@
         <div id="content" style="height:480px;">
 		<div>
 			<?php if(isset($_GET['id'])){
-					echo "<h2>Edit To Do Item</h2>";
+					echo "<h2>Editar Tarefa</h2>";
 				  }else{
-					echo "<h2>New <span>To Do</span> Item</h2>";  
+					echo "<h2>Nova Tarefa</h2>";  
 				  }				  
 		    ?>
 			
 		</div>
         
         <div id="painel" style="height:7%">
-			<div><a class="btn"  href="index.php">Back</a></div>
+			<div><a class="btn"  href="index.php"><< Voltar</a></div>
 		</div>
         
         <form class="center" method="POST" action="">
@@ -42,7 +42,7 @@
 				
 				<div class="control-group">
 				  <!-- Description -->
-				  <h4 class="form">Title</h4>
+				  <h4 class="form">Título</h4>
 				  <div class="controls">
 					<input type="text" id="title" name="title" value="<?php print htmlentities($title) ?>" class="input-xxlarge" required="required">
 				  </div>
@@ -50,7 +50,7 @@
 				
 				<div class="control-group">
 				  <!-- Description -->
-				  <h4 class="form">Description</h4>
+				  <h4 class="form">Descrição</h4>
 				  <div class="controls">
 					<textarea id="description" name="description" cols="50" rows="3" class="input-xxlarge" maxlength=500 required="required"><?php if(isset($_GET['id'])) print htmlentities($description); ?></textarea>
 				  </div>

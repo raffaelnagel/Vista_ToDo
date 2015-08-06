@@ -13,11 +13,11 @@
     <body>
 		<div id="content" style="height:780px;">
 		<div >
-			<h2>To Do List</h2>
+			<h2>Lista de Tarefas</h2>
 		</div>
 		
 		<div id="painel">
-			<div><a class="btn" href="index.php?op=new">Add new <span>To Do</span> Item</a></div>
+			<div><a class="btn" href="index.php?op=new">Adicionar Nova Tarefa</a></div>
 			
 		</div>
 		
@@ -27,8 +27,8 @@
                 <tr>
                     <!--<th><a href="?orderby=name">Id</a></th>-->
               
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -40,11 +40,11 @@
                     <td><?php print htmlentities($todo->getTitle()); ?></td>
                     <td><?php print htmlentities($todo->getDescription()); ?></td>
                     
-                    <td><a href="index.php?op=update&id=<?php print $todo->getId(); ?>"><img src="view/images/iconEdit.png" title="Edit Item"></a>
-                    &nbsp;&nbsp;<a href="index.php?op=delete&id=<?php print $todo->getId(); ?>"><img src="view/images/iconDelete.png" title="Delete Item"></a></td>
+                    <td><a href="index.php?op=update&id=<?php print $todo->getId(); ?>"><img src="view/images/iconEdit.png" title="Editar Tarefa"></a>
+                    &nbsp;&nbsp;<a href="index.php?op=delete&id=<?php print $todo->getId(); ?>"><img src="view/images/iconDelete.png" title="Remover Tarefa"></a></td>
                 </tr>
             <?php endforeach;
-				}else{ echo "</tbody></table><h3 class='center'>empty!</h3>";}?>
+				}else{ echo "</tbody></table><h3 class='center'>Sem Tarefas!</h3>";}?>
             </tbody>
         </table>
         </div>
