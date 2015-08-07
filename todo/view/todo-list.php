@@ -8,6 +8,29 @@
 		<link rel="stylesheet" href="view/css/font-awesome.min.css">
 		<link rel="stylesheet" href="view/css/main.css">
 		
+		<link href="view/assets/bootstrap.min.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="view/assets/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("input#submit").click(function(){
+					$.ajax({
+						type: "POST",
+						url: "", // 
+						data: $('form.contact').serialize(),
+						success: function(msg){
+							$("#thanks").html(msg)
+							$("#form-content").modal('hide');
+							location.reload();	
+						},
+						error: function(){
+							alert("failure");
+						}
+					});
+				});
+			});
+		</script>
+		
         
     </head>
     <body>
@@ -17,7 +40,7 @@
 		</div>
 		
 		<div id="painel">
-			<div><a class="btn" href="index.php?op=new">Adicionar Nova Tarefa</a></div>
+			<div><a class="btn"  data-toggle="modal" href="#form-content">Adicionar Nova Tarefa</a></div>
 			
 		</div>
 		
@@ -48,5 +71,29 @@
             </tbody>
         </table>
         </div>
+        
+        
+        <div id="form-content" class="modal hide fade in" style="display: none;">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>Nova Tarefa</h3>
+			</div>
+			<div class="modal-body">
+				<form class="contact" name="contact" method="POST">
+					<label class="label" for="title">Título</label><br>
+					<input type="text" name="title" class="input-xlarge"><br>					
+					<label class="label" for="description">Descrição</label><br>
+					<textarea name="description" class="input-xlarge"></textarea>
+					<input type="hidden" name="form-submitted" value="1" />
+				</form>
+			</div>
+			<div class="modal-footer">
+				<input class="btn btn-success" type="submit" value="Salvar!" id="submit">
+				<a href="#" class="btn" data-dismiss="modal">Cancelar.</a>
+			</div>
+		</div>
+        
+        
+        
     </body>
 </html>
