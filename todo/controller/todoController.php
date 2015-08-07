@@ -35,6 +35,20 @@
 		public function listTodo() {
 			$items = TodoService::listAll();
 			include 'view/todo-list.php';
+			
+			if ( isset($_POST['form-submitted']) ) {
+				
+				$title       = isset($_POST['title'])      ?   $_POST['title']      :NULL;
+				$description = isset($_POST['description'])?   $_POST['description']:NULL;
+				
+				try {
+					TodoService::insertItem($title, $description);
+					$this->redirect('index.php');
+					return;
+				} catch (ValidationException $e) {
+					$errors = $e->getErrors();
+				}
+			}			
 		}
 		
 		public function newTodo() {
